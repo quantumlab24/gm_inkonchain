@@ -386,6 +386,10 @@ def process_wallet(account_data):
 
 
 def main():
+	print("======== WEB3 | GM INKONCHAIN ========")
+    	print(f"Наши ресурсы:\n"
+          f"Telegram-канал: @quantumlab_official\n"
+          f"Продукты: @quantum_lab_bot\n\n")
 	account_file_name = ACCOUNT_FILE
 	accounts_for_work = get_profile_for_work(account_file_name)
 
@@ -398,6 +402,7 @@ def main():
 		with concurrent.futures.ThreadPoolExecutor(max_workers=MAX_THREADS) as executor:
 			futures = []
 			for account_data in accounts_for_work:
+				logger.error(f"Автоматизация и разработка by QUANTUM LAB | Telegram-канал: @quantumlab_official | Продукты: @quantum_lab_bot")
 				futures.append(executor.submit(process_wallet, account_data))
 				time.sleep(random.randint(*SLEEP_BETWEEN_ACC))
 
@@ -411,6 +416,10 @@ def main():
 	else:
 		logger.warning(f"❌ Нет аккаунтов для работы! Проверьте данные в таблице!")
 
-
+	
+    	print(f"Наши ресурсы:\n"
+          f"Telegram-канал: @quantumlab_official\n"
+          f"Продукты: @quantum_lab_bot\n\n")
+	print("======== WEB3 | GM INKONCHAIN ========")
 
 main()
