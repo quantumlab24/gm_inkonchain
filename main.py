@@ -25,7 +25,8 @@ from excel_functions import get_profile_for_work, write_cell
 
 # Количество потоков
 MAX_THREADS = 8
-
+# Пауза между отправкой аккаунтов в работу
+SLEEP_BETWEEN_ACC = [2, 8]
 
 
 
@@ -398,7 +399,7 @@ def main():
 			futures = []
 			for account_data in accounts_for_work:
 				futures.append(executor.submit(process_wallet, account_data))
-				time.sleep(1)
+				time.sleep(random.randint(*SLEEP_BETWEEN_ACC))
 
 			for future in concurrent.futures.as_completed(futures):
 				try:
